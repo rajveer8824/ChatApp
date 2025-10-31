@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
-import { useAuth } from '../context/AuthProvider.jsx';
+import { useAuth } from '../context/Authprovider.jsx';
 
 function Login() {
   const { authUser, setAuthUser } = useAuth(); // Use the custom hook
