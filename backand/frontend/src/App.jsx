@@ -4,7 +4,7 @@ import Left from './home/Leftpart/Left';
 import Right from './home/Rightpart/Right';
 import Signup from './components/Signup';
 import Login from './components/Login';
-import { useAuth } from './context/AuthProvider.jsx';
+import { useAuth } from './context/Authprovider.jsx';
 
 import Loading from './components/Loading.jsx';
 
