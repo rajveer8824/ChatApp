@@ -14,12 +14,18 @@ export const SocketProvider = ({ children }) => {
   const { authUser } = useAuth(); // Correctly destructure authUser
 
   useEffect(() => {
-    if (authUser?.user?._id) {
-      const socket = io("http://localhost:4000", {
-        query: {
-          userId: authUser.user._id,
-        },
-      });
+    const backendURL =
+    process.env.NODE_ENV === "production"
+      ? "https://chatify-uw44.onrender.com" // your deployed backend on Render
+      : "http://localhost:4000";            // local backend
+
+  if (authUser?.user?._id) {
+    const socket = io(backendURL, {
+      transports: ["websocket"], // ✅ ensures Render works (prevents CORS/polling issues)
+      query: {
+        userId: authUser.user._id,
+      },
+    });
       setSocket(socket);
 
       socket.on("getOnlineUsers", (users) => {

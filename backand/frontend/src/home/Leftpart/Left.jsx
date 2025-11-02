@@ -13,7 +13,8 @@ function Left() {
       >
         <Users />
       </div>
-      <Logout />
+      <div className='absolute bottom-0 left-3'>      < Logout />
+</div>
     </div>
   );
 }
